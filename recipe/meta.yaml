@@ -15,7 +15,11 @@ source:
 build:
   number: 0
   skip: True  # [py<31]
-  script: "cp svgpathtools-1.4 wildmeshing/parse_svg; {{ PYTHON }} -m pip install . -vv"
+  script:
+    - ls
+    - ls {{ SRC_DIR }}
+    - cp svgpathtools-1.4 wildmeshing/parse_svg
+    - {{ PYTHON }} -m pip install . -vv"
 
 requirements:
   build:
