@@ -17,13 +17,12 @@ build:
   skip: True  # [py<31]
   script:
     - ls svgpathtools
-    - echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>done"
-    - mkdir wildmeshing/parse_svg
+    - echo "ls svgpathtools >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>done"
     - mv svgpathtools/* wildmeshing/parse_svg
     - ls
-    - echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>done"
+    - echo "ls >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>done"
     - ls wildmeshing/parse_svg
-    - echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>done"
+    - echo "wildmeshing/parse_svg >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>done"
     - rm -r svgpathtools
     - {{ PYTHON }} -m pip install . -vv
 
