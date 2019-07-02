@@ -16,9 +16,13 @@ build:
   number: 0
   skip: True  # [py<31]
   script:
+    - ls svgpathtools
+    - echo "done"
     - mv svgpathtools/svgpathtools wildmeshing/parse_svg
     - ls
+    - echo "done"
     - ls wildmeshing/parse_svg
+    - echo "done"
     - rm -r svgpathtools
     - {{ PYTHON }} -m pip install . -vv
 
