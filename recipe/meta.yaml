@@ -6,10 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/wildmeshing/wildmeshing-python/archive/{{ version }}.tar.gz
-  sha256: 85ec64186ad7a64f00ee073049996ee2d73363db5018507b3c4353369701ec99
-  url: https://github.com/teseoch/svgpathtools/archive/1.4.tar.gz
-  sha256: 9e3548d3312241b09cd595dca3e23c2a3c54dfee8439d29d9e6b46ca4c773d1b
+  url:
+    - https://github.com/teseoch/svgpathtools/archive/1.4.tar.gz
+    - https://github.com/wildmeshing/wildmeshing-python/archive/{{ version }}.tar.gz
+  sha256:
+    - 9e3548d3312241b09cd595dca3e23c2a3c54dfee8439d29d9e6b46ca4c773d1b
+    - 85ec64186ad7a64f00ee073049996ee2d73363db5018507b3c4353369701ec99
 
 
 build:
@@ -18,7 +20,7 @@ build:
   script:
     - ls
     - ls {{ SRC_DIR }}
-    - cp svgpathtools-1.4 wildmeshing/parse_svg
+    - cp svgpathtools wildmeshing/parse_svg
     - {{ PYTHON }} -m pip install . -vv"
 
 requirements:
