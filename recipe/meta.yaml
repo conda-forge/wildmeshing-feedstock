@@ -1,18 +1,25 @@
 {% set name = "wildmeshing" %}
-{% set version = "0.1" %}
+{% set version = "0.1.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/wildmeshing/wildmeshing-python/archive/{{ version }}.tar.gz
-  sha256: 12c85ff3ec97d7020bb705dcc76f4a545be13c5537b78ae66edbf4749a6ee56c
+  - url: https://github.com/wildmeshing/wildmeshing-python/archive/{{ version }}.tar.gz
+    sha256: 85ec64186ad7a64f00ee073049996ee2d73363db5018507b3c4353369701ec99
+  - url: https://github.com/teseoch/svgpathtools/archive/1.4.tar.gz
+    sha256: 9e3548d3312241b09cd595dca3e23c2a3c54dfee8439d29d9e6b46ca4c773d1b
+    folder: svgpathtools
 
 build:
   number: 0
   skip: True  # [py<31]
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script:
+    - mv svgpathtools/* wildmeshing/parse_svg
+    - ls wildmeshing/parse_svg
+    - rm -r svgpathtools
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -32,6 +39,7 @@ requirements:
     - python
     - mpir    # [win]
     - {{ pin_compatible('numpy') }}
+    - svgwrite
 
 test:
   imports:
