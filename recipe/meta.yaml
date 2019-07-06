@@ -7,13 +7,13 @@ package:
 
 source:
   - url: https://github.com/wildmeshing/wildmeshing-python/archive/{{ version }}.tar.gz
-    sha256: 85ec64186ad7a64f00ee073049996ee2d73363db5018507b3c4353369701ec99
+    sha256: 96b4b970fa3b1a986bad01633da1450c99ce6766c070faf4a4143f1bba128f91
   - url: https://github.com/teseoch/svgpathtools/archive/1.4.tar.gz
     sha256: 9e3548d3312241b09cd595dca3e23c2a3c54dfee8439d29d9e6b46ca4c773d1b
     folder: svgpathtools
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py<31]
   script:
     - mv svgpathtools/* wildmeshing/parse_svg
