@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/wildmeshing/wildmeshing-python/archive/{{ version }}.tar.gz
-    sha256: 96b4b970fa3b1a986bad01633da1450c99ce6766c070faf4a4143f1bba128f91
+    sha256: 54e5a5fb75d908507ef3d06d16441a9506e67c1336c58db967c7a799e6a89c27
   - url: https://github.com/teseoch/svgpathtools/archive/1.4.tar.gz
     sha256: 9e3548d3312241b09cd595dca3e23c2a3c54dfee8439d29d9e6b46ca4c773d1b
     folder: svgpathtools
