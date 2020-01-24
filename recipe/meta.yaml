@@ -1,5 +1,5 @@
 {% set name = "wildmeshing" %}
-{% set version = "0.2" %}
+{% set version = "0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
     folder: svgpathtools
 
 build:
-  number: 1
+  number: 0
   skip: True  # [py<31]
   script:
     - mv svgpathtools/* wildmeshing/parse_svg
