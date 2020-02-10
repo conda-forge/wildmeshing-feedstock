@@ -1,5 +1,5 @@
 {% set name = "wildmeshing" %}
-{% set version = "0.3" %}
+{% set version = "0.3.0.1" %}
 
 package:
   name: {{ name|lower }}
