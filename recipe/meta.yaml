@@ -1,5 +1,5 @@
 {% set name = "wildmeshing" %}
-{% set version = "0.3.0.1" %}
+{% set version = "0.3.0.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   - url: https://github.com/wildmeshing/wildmeshing-python/archive/{{ version }}.tar.gz
-    sha256: 1cc7048856e99208509f84dac1d787db5890687646cca5ade264c7a9f9b3376b
+    sha256: 8965e656134ac16a172a0f34fe835e3989698c8ff46be818ab59b44a34c53986
   - url: https://github.com/teseoch/svgpathtools/archive/1.4.tar.gz
     sha256: 9e3548d3312241b09cd595dca3e23c2a3c54dfee8439d29d9e6b46ca4c773d1b
     folder: svgpathtools
