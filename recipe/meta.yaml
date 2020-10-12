@@ -13,7 +13,7 @@ source:
     folder: svgpathtools
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py<31]
   script:
     - mv svgpathtools/* wildmeshing/parse_svg
