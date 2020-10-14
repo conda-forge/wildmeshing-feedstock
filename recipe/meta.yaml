@@ -20,6 +20,7 @@ build:
     - ls wildmeshing/parse_svg  # [unix]
     - rm -r svgpathtools  # [unix]
     - dir svgpathtools  # [win]
+    - dir .  # [win]
     - dir wildmeshing  # [win]
     - move svgpathtools/* wildmeshing/parse_svg  # [win]
     - dir wildmeshing/parse_svg  # [win]
