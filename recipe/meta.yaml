@@ -13,12 +13,19 @@ source:
     folder: svgpathtools
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py<31]
   script:
-    - mv svgpathtools/* wildmeshing/parse_svg
-    - ls wildmeshing/parse_svg
-    - rm -r svgpathtools
+    - mv svgpathtools/* wildmeshing/parse_svg  # [unix]
+    - ls wildmeshing/parse_svg  # [unix]
+    - rm -r svgpathtools  # [unix]
+    - dir svgpathtools  # [win]
+    - dir .  # [win]
+    - dir wildmeshing  # [win]
+    - move svgpathtools\* wildmeshing\parse_svg  # [win]
+    - move svgpathtools\svgpathtools wildmeshing\parse_svg  # [win]
+    - dir wildmeshing\parse_svg  # [win]
+    # - del svgpathtools  # [win]
     - set "CMAKE_GENERATOR=NMake Makefiles"  # [win]
     - {{ PYTHON }} -m pip install . -vv
 
@@ -48,7 +55,7 @@ test:
 
 about:
   home: https://github.com/wildmeshing/wildmeshing-python
-  license: LGPL
+  license: LGPL-2.0-only
   license_family: LGPL
   license_file: LICENSE
   summary: 'Simple, fast, robust meshing'
