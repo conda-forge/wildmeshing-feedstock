@@ -19,9 +19,11 @@ build:
     - mv svgpathtools/* wildmeshing/parse_svg  # [unix]
     - ls wildmeshing/parse_svg  # [unix]
     - rm -r svgpathtools  # [unix]
+    - dir svgpathtools  # [win]
+    - dir wildmeshing  # [win]
     - move svgpathtools/* wildmeshing/parse_svg  # [win]
     - dir wildmeshing/parse_svg  # [win]
-    - del -r svgpathtools  # [win]
+    - del svgpathtools  # [win]
     - set "CMAKE_GENERATOR=NMake Makefiles"  # [win]
     - {{ PYTHON }} -m pip install . -vv
 
