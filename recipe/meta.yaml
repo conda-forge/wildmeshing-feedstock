@@ -16,12 +16,12 @@ build:
   number: 1
   skip: True  # [py<31]
   script:
-    - mv svgpathtools/* wildmeshing/parse_svg # [unix]
-    - ls wildmeshing/parse_svg # [unix]
-    - rm -r svgpathtools # [unix]
-    - move svgpathtools/* wildmeshing/parse_svg # [win]
+    - mv svgpathtools/* wildmeshing/parse_svg  # [unix]
+    - ls wildmeshing/parse_svg  # [unix]
+    - rm -r svgpathtools  # [unix]
+    - move svgpathtools/* wildmeshing/parse_svg  # [win]
     - dir wildmeshing/parse_svg # [win]
-    - del -r svgpathtools # [win]
+    - del -r svgpathtools  # [win]
     - set "CMAKE_GENERATOR=NMake Makefiles"  # [win]
     - {{ PYTHON }} -m pip install . -vv
 
