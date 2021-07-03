@@ -39,7 +39,7 @@ requirements:
     - python
     - pip
     - libblas  # [unix]
-    - libcblas # [unix]
+    - libcblas  # [unix]
     - numpy
     - gmp     # [unix]
     - mpir    # [win]
