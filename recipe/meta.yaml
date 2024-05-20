@@ -13,7 +13,7 @@ source:
     folder: svgpathtools
 
 build:
-  number: 1
+  number: 2
   skip: True  # [py<31]
   script:
     - mv svgpathtools/* wildmeshing/parse_svg  # [unix]
@@ -32,6 +32,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cmake
     - make
@@ -46,7 +47,6 @@ requirements:
   run:
     - python
     - mpir    # [win]
-    - {{ pin_compatible('numpy') }}
     - svgwrite
 
 test:
