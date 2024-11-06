@@ -38,8 +38,8 @@ requirements:
   host:
     - python
     - pip
-    - libblas
-    - libcblas
+    - libblas  # [unix]
+    - libcblas  # [unix]
     - numpy
     - gmp     # [unix]
     - mpir    # [win]
