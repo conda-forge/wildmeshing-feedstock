@@ -13,7 +13,7 @@ source:
     folder: svgpathtools
 
 build:
-  number: 1
+  number: 2
   skip: True  # [py<31]
   script:
     - mv svgpathtools/* wildmeshing/parse_svg  # [unix]
@@ -42,10 +42,10 @@ requirements:
     - libcblas
     - numpy
     - gmp     # [unix]
-    - mpir    # [win]
+    - gmp    # [win]
   run:
     - python
-    - mpir    # [win]
+    - gmp    # [win]
     - {{ pin_compatible('numpy') }}
     - svgwrite
 
