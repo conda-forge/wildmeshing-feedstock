@@ -1,19 +1,19 @@
 {% set name = "wildmeshing" %}
-{% set version = "0.3.0.2" %}
+{% set version = "0.4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  - url: https://github.com/wildmeshing/wildmeshing-python/archive/{{ version }}.tar.gz
-    sha256: 8965e656134ac16a172a0f34fe835e3989698c8ff46be818ab59b44a34c53986
-  - url: https://github.com/teseoch/svgpathtools/archive/1.4.tar.gz
-    sha256: 9e3548d3312241b09cd595dca3e23c2a3c54dfee8439d29d9e6b46ca4c773d1b
+  - url: https://github.com/jorgensd/wildmeshing-python/archive/refs/heads/arm64.zip
+    sha256: b91ecc6760370f2fa6568673f64b3e2a572296810a07259699d06693e74c8a13
+  - url: https://github.com/teseoch/svgpathtools/archive/refs/heads/master.tar.gz
+    sha256: ff7e0dfe3436d920f0493874463a253c5ac32f02a4d3b235f9547b4297b9b958
     folder: svgpathtools
 
 build:
-  number: 1
+  number: 0
   skip: True  # [py<31]
   script:
     - mv svgpathtools/* wildmeshing/parse_svg  # [unix]
@@ -26,18 +26,31 @@ build:
     - move svgpathtools\svgpathtools wildmeshing\parse_svg  # [win]
     - dir wildmeshing\parse_svg  # [win]
     # - del svgpathtools  # [win]
-    - set "CMAKE_GENERATOR=NMake Makefiles"  # [win]
+    - set "CMAKE_GENERATOR=Ninja"  # [win]
+    - set "CMAKE_PLAT="  # [win]
+    - set "CMAKE_GENERATOR_PLATFORM="  # [win]
+    - set "CMAKE_GENERATOR_TOOLSET="  # [win]
+    - set "CMAKE_BUILD_PARALLEL_LEVEL=1"  # [win]
+    - unset CMAKE_ARGS  # [unix]
+    - export CMAKE_CXX_FLAGS="-Wno-error=unused-command-line-argument"  # [osx_arm64]
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
+    - {{ stdlib("c") }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
     - make
+    - ninja
+    - cross-python_{{ target_platform }}    # [build_platform != target_platform]
+    - python                                # [build_platform != target_platform]
+    - pip
+    - setuptools
   host:
     - python
     - pip
+    - setuptools
     - libblas
     - libcblas
     - numpy
@@ -63,6 +76,7 @@ about:
   description: 'Simple, fast, robust meshing'
   doc_url: https://github.com/wildmeshing/wildmeshing-python
   dev_url: https://github.com/wildmeshing/wildmeshing-python
+
 
 extra:
   recipe-maintainers:
