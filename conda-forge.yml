@@ -6,3 +6,7 @@ github:
   tooling_branch_name: main
 conda_build:
   pkg_format: '2'
+azure:
+  settings_win:
+    variables:
+      SET_PAGEFILE: 'True'
